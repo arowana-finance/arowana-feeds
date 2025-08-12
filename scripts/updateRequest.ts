@@ -12,7 +12,7 @@ import { getSigners } from 'ethers-opt/hardhat/fixtures';
 import { getBytes } from 'ethers';
 import { BaseFunctionsConsumer__factory } from '../typechain-types/index.js';
 
-const CONSUMER_ADDRESS = process.env.CONSUMER_ADDRESS || '0x91374189aC64F294f6bAF26968988fAF541ddeE2';
+const CONSUMER_ADDRESS = process.env.CONSUMER_ADDRESS || '0x52bCA4564b47F8ae73fAD78db32dC3BEA3e5D1c3';
 const SUBSCRIPTION_ID = Number(process.env.SUBSCRIPTION_ID || 395);
 
 const gasLimit = 300000;
@@ -38,7 +38,7 @@ async function updateRequest() {
 
     const chainId = Number((await provider.getNetwork()).chainId);
 
-    const { donID } = networkConfigs[chainId];
+    const { donID, explorerUrl } = networkConfigs[chainId];
 
     const source = await readFile('./deno/source.js', { encoding: 'utf8' });
 
@@ -80,28 +80,17 @@ async function updateRequest() {
         bytesArgs: [],
     });
 
-    const tx = await automatedFunctionsConsumer.updateRequest.populateTransaction(
+    const transaction = await automatedFunctionsConsumer.updateRequest(
         functionsRequestBytesHexString,
         SUBSCRIPTION_ID,
         gasLimit,
         donID,
     );
 
-    console.log(tx);
-
-    /**
-    const transaction = await automatedFunctionsConsumer.updateRequest(
-        functionsRequestBytesHexString,
-        SUBSCRIPTION_ID,
-        gasLimit,
-        encodeBytes32String('0x')
-    );
-
     // Log transaction details
     console.log(
-        `\n✅ Automated Functions request settings updated! Transaction hash ${transaction.hash} - Check the explorer ${explorerUrl}/tx/${transaction.hash}`
+        `\n✅ Automated Functions request settings updated! Transaction hash ${transaction.hash} - Check the explorer ${explorerUrl}/tx/${transaction.hash}`,
     );
-    **/
 }
 
 updateRequest();

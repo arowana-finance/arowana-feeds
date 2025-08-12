@@ -34,7 +34,7 @@ contract ARWFeed is DataFeed, BaseFunctionsConsumer {
         uint64 _upkeepRateCap,
         uint64 _maxBaseGasPrice,
         uint64 _updateInterval
-    ) public onlyOwner {
+    ) public virtual initializer {
         setInterval(_updateInterval);
         setUpkeep(_upkeepContract, _upkeepInterval, _upkeepRateInterval, _upkeepRateCap, _maxBaseGasPrice);
         _initializeConsumer(address(0), _router);

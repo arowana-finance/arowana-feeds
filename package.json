@@ -1,6 +1,6 @@
 {
     "name": "arowana-feeds",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Custom Chainlink Feed contracts ( Functions, Automation ) for Arowana Finance",
     "license": "MIT",
     "author": "Arowana Finance",

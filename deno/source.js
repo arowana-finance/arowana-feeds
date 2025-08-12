@@ -1,11 +1,11 @@
 // Imports
 const ethers = await import('npm:ethers@6.15.0');
 const ethersOpt = await import('npm:ethers-opt@1.0.7');
-const arwFeeds = await import('npm:arowana-feeds@1.0.0');
+const arwFeeds = await import('npm:arowana-feeds@1.0.1');
 
 const VWAP_PRICE_URL = 'https://raw.githubusercontent.com/arowana-finance/arowana-data/main/arw_price/price_vwap.jsonl';
 const RPC_URL = 'https://sepolia-rollup.arbitrum.io/rpc';
-const CONTRACT_ADDRESS = '0x91374189aC64F294f6bAF26968988fAF541ddeE2';
+const CONTRACT_ADDRESS = '0x52bCA4564b47F8ae73fAD78db32dC3BEA3e5D1c3';
 const ORACLE_DECIMALS = 8;
 
 // Chainlink Functions compatible Ethers JSON RPC provider class
