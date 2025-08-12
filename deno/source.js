@@ -1,12 +1,63 @@
 // Imports
 const ethers = await import('npm:ethers@6.15.0');
 const ethersOpt = await import('npm:ethers-opt@1.0.7');
-const arwFeeds = await import('npm:arowana-feeds@1.0.1');
 
 const VWAP_PRICE_URL = 'https://raw.githubusercontent.com/arowana-finance/arowana-data/main/arw_price/price_vwap.jsonl';
 const RPC_URL = 'https://sepolia-rollup.arbitrum.io/rpc';
 const CONTRACT_ADDRESS = '0x52bCA4564b47F8ae73fAD78db32dC3BEA3e5D1c3';
 const ORACLE_DECIMALS = 8;
+
+const abi = [
+    {
+        "inputs": [],
+        "name": "latestAnswer",
+        "outputs": [
+            {
+                "internalType": "int256",
+                "name": "",
+                "type": "int256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "latestRound",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "latestTimestamp",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
+
+function parseJSONL(jsonl) {
+    // Split string into lines (handles both \n and \r\n)
+    const lines = jsonl.split(/\r?\n/);
+    // Parse each line and filter out empty ones
+    return lines
+        .map((line) => line.trim())
+        .filter((line) => line.length > 0)
+        .map((line) => JSON.parse(line));
+}
 
 // Chainlink Functions compatible Ethers JSON RPC provider class
 // (this is required for making Ethers RPC calls with Chainlink Functions)
@@ -34,7 +85,7 @@ function chunk(arr, size) {
 }
 
 const provider = new FunctionsJsonRpcProvider(RPC_URL);
-const dataFeed = arwFeeds.contracts.DataFeed__factory.connect(CONTRACT_ADDRESS, provider);
+const dataFeed = new ethers.Contract(CONTRACT_ADDRESS, abi, provider);
 const dataFeedTimestamp = await (async () => {
     try {
         return Number(await dataFeed.latestTimestamp());
@@ -51,7 +102,7 @@ const vwapPrices = await (async () => {
             return [];
         }
 
-        return arwFeeds.parseJSONL(await resp.text());
+        return parseJSONL(await resp.text());
     } catch {
         return [];
     }
