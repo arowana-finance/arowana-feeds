@@ -36,9 +36,14 @@ async function getPrices(localFile: string, symbol: string, exchange: Exchange):
     const startTime = localPrices.length ? (localPrices.slice(-1)[0].timestamp + 1) * 1000 : undefined;
 
     // Remove last element as it is not finalized
-    const latestPrices = (await getOHLCV({ exchange, symbol, startTime })).slice(0, -1);
+    try {
+        const latestPrices = (await getOHLCV({ exchange, symbol, startTime })).slice(0, -1);
 
-    return localPrices.concat(latestPrices);
+        return localPrices.concat(latestPrices);
+    } catch (error) {
+        console.log(`Error from exchange ${exchange.name}`, error);
+        return localPrices;
+    }
 }
 
 export async function syncPrice() {

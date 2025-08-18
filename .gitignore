@@ -22,3 +22,5 @@ docs/.vitepress/cache
 
 /flatten
 .env
+arw_*.txt
+price_*.jsonl

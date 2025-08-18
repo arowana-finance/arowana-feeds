@@ -1,6 +1,6 @@
 {
     "name": "arowana-feeds",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Custom Chainlink Feed contracts ( Functions, Automation ) for Arowana Finance",
     "license": "MIT",
     "author": "Arowana Finance",
@@ -45,7 +45,7 @@
         "coverage": "hardhat clean && yarn hardhat coverage --solcoverjs ./.solcover.cjs && istanbul-badges-readme --colors=\"red:50,yellow:60\""
     },
     "dependencies": {
-        "ccxt": "^4.4.100",
+        "ccxt": "^4.5.0",
         "ethers": "^6.15.0",
         "ethers-opt": "^1.0.7"
     },
@@ -68,7 +68,7 @@
         "@typechain/hardhat": "npm:@arowanadao/typechain-hardhat@^9.1.0",
         "@types/chai": "^5.2.2",
         "@types/mocha": "^10.0.10",
-        "@types/node": "^24.2.0",
+        "@types/node": "^24.3.0",
         "@vitest/coverage-v8": "^3.2.4",
         "chai": "^5.2.1",
         "cross-env": "^10.0.0",

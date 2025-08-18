@@ -2300,10 +2300,10 @@
   resolved "https://registry.yarnpkg.com/@types/mocha/-/mocha-10.0.10.tgz#91f62905e8d23cbd66225312f239454a23bebfa0"
   integrity sha512-xPyYSz1cMPnJQhl0CLMH68j3gprKZaTjG3s5Vi+fDgx+uhG9NOXwbVt52eFS8ECyXhyKcjDLCBEqBExKuiZb7Q==
 
-"@types/node@*", "@types/node@^24.2.0":
-  version "24.2.1"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.2.1.tgz#83e41543f0a518e006594bb394e2cd961de56727"
-  integrity sha512-DRh5K+ka5eJic8CjH7td8QpYEV6Zo10gfRkjHCO3weqZHWDtAaSTFtl4+VMqOJ4N5jcuhZ9/l+yy8rVgw7BQeQ==
+"@types/node@*", "@types/node@^24.3.0":
+  version "24.3.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-24.3.0.tgz#89b09f45cb9a8ee69466f18ee5864e4c3eb84dec"
+  integrity sha512-aPTXCrfwnDLj4VvXrm+UUCQjNEvJgNA8s5F1cvwQU+3KNltTOkBm1j30uNLyqqPNe7gE3KFzImYoZEfLhp4Yow==
   dependencies:
     undici-types "~7.10.0"
 
@@ -3424,10 +3424,10 @@ ccount@^2.0.0:
   resolved "https://registry.yarnpkg.com/ccount/-/ccount-2.0.1.tgz#17a3bf82302e0870d6da43a01311a8bc02a3ecf5"
   integrity sha512-eyrF0jiFpY+3drT6383f1qhkbGsLSifNAjA61IUjZjmLCWjItY6LB9ft9YhoDgwfmclB2zhu51Lc7+95b8NRAg==
 
-ccxt@^4.4.100:
-  version "4.4.100"
-  resolved "https://registry.yarnpkg.com/ccxt/-/ccxt-4.4.100.tgz#4276dc6bf40bd0fe824394af96b1c6553ca6561e"
-  integrity sha512-OtYCOmotwsTS+xvrPs3Zb8ONulgHqxcr1d12j4XxRqXDyMGT0FZAbh+CZRYCVlHbhiAUATOb4hxLXeMC5ZPMPw==
+ccxt@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/ccxt/-/ccxt-4.5.0.tgz#6d5a0168c28d9acb57c90f8a6e10ff04ae7d28e7"
+  integrity sha512-82BqP9xprPd6CATOArY3t1UKfLG+MpQoR/DoeWQce7ddleZqtFG4Rwu68hq0YutbuCYePsfSI6ofj5uCs0X76g==
   dependencies:
     ws "^8.8.1"
 
